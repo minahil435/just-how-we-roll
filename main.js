@@ -69,7 +69,7 @@ const resetButton = document.querySelector('#reset-button');
  * EVENT LISTENERS *
  *******************/
 
-firstDice.addEventListener('click', ludoDiceRolled(5));
+firstDice.addEventListener('click', ludoDiceRolled);
 doubleDice1.addEventListener('click', ludoDiceRolled2);
 singleDie12.addEventListener('click', ludoDiceRolled3);
 singleDie20.addEventListener('click', ludoDiceRolled4);
@@ -110,8 +110,8 @@ resetButton.addEventListener('click', reset);
 /****************************
  * CLICK HANDLING FUNCTIONS *
 ****************************/
-function ludoDiceRolled(max){
-  let num = getRandomNumber(max)
+function ludoDiceRolled(){
+  let num = getRandomNumber(5)
   num = num + 1
 
   firstDice.src = 'images/d6/'+ num + '.png'
