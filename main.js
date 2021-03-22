@@ -61,10 +61,6 @@ const singleDie20Mode = document.querySelector('#d20-rolls-mode');
 const resetButton = document.querySelector('#reset-button');
 
 
-
-
-
-
 /*******************
  * EVENT LISTENERS *
  *******************/
@@ -76,28 +72,31 @@ singleDie20.addEventListener('click', ludoDiceRolled4);
 resetButton.addEventListener('click', reset);
 
 
-
 /******************
  * RESET FUNCTION *
  ******************/
 
  function reset(){
+  sixes = []
   firstDice.src = 'images/start/d6.png'
   firstDiceMean.innerText = "NA"
   firstDiceMedian.innerText = "NA"
   firstDiceMode.innerText = "NA"
 
+  doubleSixes= []
   doubleDice1.src = 'images/start/d6.png'
   doubleDice2.src = 'images/start/d6.png'
   doubleDiceMean.innerText = "NA"
   doubleDiceMedian.innerText = "NA"
   doubleDiceMode.innerText = "NA"
 
+  twelves= []
   singleDie12.src = 'images/start/d12.jpeg'
   singleDie12Mean.innerText = "NA"
   singleDie12Median.innerText = "NA"
   singleDie12Mode.innerText = "NA"
 
+  twenties = [] 
   singleDie20.src = 'images/start/d20.jpg'
   singleDie20Mean.innerText = "NA"
   singleDie20Median.innerText = "NA"
