@@ -7,20 +7,21 @@ const doubleSixes = [];
 const twelves = [];
 const twenties = [];
 
+
 /********************
  * HELPER FUNCTIONS *
 ********************/
 
-const getRandomNumber = function(max) {
-    const rand = Math.random();
-    const range = rand * max;
-    const result = Math.ceil(range);
-    
-    return result;
+const getRandomNumber = function (max) {
+  const rand = Math.random();
+  const range = rand * max;
+  const result = Math.ceil(range);
+
+  return result;
 }
 
-const sortByNumber = function(arr) {
-  const byNumber = function(item1, item2) {
+const sortByNumber = function (arr) {
+  const byNumber = function (item1, item2) {
     return item1 - item2;
   }
 
@@ -56,8 +57,6 @@ const singleDie20Mean = document.querySelector('#d20-rolls-mean');
 const singleDie20Median = document.querySelector('#d20-rolls-median');
 const singleDie20Mode = document.querySelector('#d20-rolls-mode');
 
-
-
 const resetButton = document.querySelector('#reset-button');
 
 
@@ -71,49 +70,48 @@ singleDie12.addEventListener('click', ludoDiceRolled3);
 singleDie20.addEventListener('click', ludoDiceRolled4);
 resetButton.addEventListener('click', reset);
 
-
 /******************
  * RESET FUNCTION *
  ******************/
 
- function reset(){
-  sixes = []
+function reset() {
+  sixes.splice[0]
   firstDice.src = 'images/start/d6.png'
   firstDiceMean.innerText = "NA"
   firstDiceMedian.innerText = "NA"
   firstDiceMode.innerText = "NA"
 
-  doubleSixes= []
+  doubleSixes.splice[0]
   doubleDice1.src = 'images/start/d6.png'
   doubleDice2.src = 'images/start/d6.png'
   doubleDiceMean.innerText = "NA"
   doubleDiceMedian.innerText = "NA"
   doubleDiceMode.innerText = "NA"
 
-  twelves= []
+  twelves.splice[0]
   singleDie12.src = 'images/start/d12.jpeg'
   singleDie12Mean.innerText = "NA"
   singleDie12Median.innerText = "NA"
   singleDie12Mode.innerText = "NA"
 
-  twenties = [] 
+  twenties.splice[0]
   singleDie20.src = 'images/start/d20.jpg'
   singleDie20Mean.innerText = "NA"
   singleDie20Median.innerText = "NA"
   singleDie20Mode.innerText = "NA"
- }
+}
 
- reset()
+reset()
 
 
 /****************************
  * CLICK HANDLING FUNCTIONS *
 ****************************/
-function ludoDiceRolled(){
+function ludoDiceRolled() {
   let num = getRandomNumber(5)
   num = num + 1
 
-  firstDice.src = 'images/d6/'+ num + '.png'
+  firstDice.src = 'images/d6/' + num + '.png'
 
   sixes.push(num)
 
@@ -122,15 +120,15 @@ function ludoDiceRolled(){
   firstDiceMode.innerText = mode(sixes)
 }
 
-function ludoDiceRolled2(){
+function ludoDiceRolled2() {
 
   let num = getRandomNumber(5)
   num = num + 1
   let num2 = getRandomNumber(5)
   num2 = num2 + 1
 
-  doubleDice1.src = 'images/d6/'+ num + '.png'
-  doubleDice2.src = 'images/d6/'+ num2 + '.png'
+  doubleDice1.src = 'images/d6/' + num + '.png'
+  doubleDice2.src = 'images/d6/' + num2 + '.png'
 
   doubleSixes.push(num + num2)
 
@@ -139,23 +137,23 @@ function ludoDiceRolled2(){
   doubleDiceMode.innerText = mode(doubleSixes)
 }
 
-function ludoDiceRolled3(){
+function ludoDiceRolled3() {
   let num = getRandomNumber(11)
   num = num + 1
 
-  singleDie12.src = 'images/numbers/'+ num + '.png'
+  singleDie12.src = 'images/numbers/' + num + '.png'
 
   twelves.push(num)
-   console.log("hello")
+  console.log("hello")
   singleDie12Mean.innerText = mean(twelves)
   singleDie12Median.innerText = median(twelves)
   singleDie12Mode.innerText = mode(twelves)
 }
-function ludoDiceRolled4(){
+function ludoDiceRolled4() {
   let num = getRandomNumber(19)
   num = num + 1
 
-  singleDie20.src = 'images/numbers/'+ num + '.png'
+  singleDie20.src = 'images/numbers/' + num + '.png'
 
   twenties.push(num)
   singleDie20Mean.innerText = mean(twenties)
@@ -164,63 +162,63 @@ function ludoDiceRolled4(){
 
 }
 
-
-function mean(arr){
+function mean(arr) {
   let sum = 0
-  for(const each of arr){
-        sum = sum + each
+  for (const each of arr) {
+    sum = sum + each
   }
-  if (sum === 0){return "NA"}
+  if (sum === 0) { return "NA" }
   return sum / (arr.length)
 }
 
-function median(arr){
-  if (arr.length === 0){ return "NA"}
+function median(arr) {
+  if (arr.length === 0) { return "NA" }
   const sortedArr = sortByNumber(arr)
-  let mid = sortedArr.length / 2 
-  if ((sortedArr.length % 2) === 0 ){
-  
-  const firstVal = sortedArr[mid - 1] 
-  const secondVal =  sortedArr[mid]
-  const sum = ( firstVal + secondVal ) / 2 
-  return sum
+  let mid = sortedArr.length / 2
+  if ((sortedArr.length % 2) === 0) {
+
+    const firstVal = sortedArr[mid - 1]
+    const secondVal = sortedArr[mid]
+    const sum = (firstVal + secondVal) / 2
+    return sum
 
   }
   return sortedArr[Math.floor(mid)]
 
 }
 
-function mode(arr){
-  if (arr.length === 0){ return "NA"}
-   let diceOccuringArray = []
-   for (const each of arr){
-     let sum = 0
-    for (const digit of arr){
-        if (each === digit){ sum = sum + 1}         
+function mode(arr) {
+  if (arr.length === 0) { return "NA" }
+  let diceOccuringArray = []
+  for (const each of arr) {
+    let sum = 0
+    for (const digit of arr) {
+      if (each === digit) { sum = sum + 1 }
     }
     diceOccuringArray.push(sum)
-   }
+  }
 
-   return  arr[indexOfMax(diceOccuringArray)]
+  return arr[indexOfMax(diceOccuringArray)]
 }
+
 function indexOfMax(arr) {
   if (arr.length === 0) {
-      return -1;
+    return -1;
   }
 
   var max = arr[0];
   var maxIndex = 0;
 
   for (var i = 1; i < arr.length; i++) {
-      if (arr[i] > max) {
-          maxIndex = i;
-          max = arr[i];
-      }
+    if (arr[i] > max) {
+      maxIndex = i;
+      max = arr[i];
+    }
   }
 
   return maxIndex;
 }
-  
+
 /****************
  * MATH SECTION *
  ****************/
